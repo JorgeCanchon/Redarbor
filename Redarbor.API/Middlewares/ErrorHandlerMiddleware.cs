@@ -23,7 +23,8 @@ public class ErrorHandlerMiddleware(RequestDelegate next)
             var responseModel = new Response<string>()
             {
                 IsSucess = false,
-                Message = exception?.Message
+                Message = exception?.Message,
+                Code = "500"
             };
 
             switch (exception)

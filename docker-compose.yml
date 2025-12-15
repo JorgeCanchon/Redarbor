@@ -9,8 +9,7 @@ services:
         condition: service_healthy
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__PostgreConnection=Server=dbpostgresqlserver;Database=RedarborDb;Port=5433;User Id=redarboruser;Password=R3d2@rb0rus3r132
-      - Redarbor.ConnectionString=Server=dbpostgresqlserver;Database=RedarborDb;Port=5433;User Id=redarboruser;Password=R3d2@rb0rus3r132
+      - ConnectionStrings__Redarbor.ConnectionString=Server=dbpostgresqlserver;Database=RedarborDb;Port=5432;User Id=redarboruser;Password=R3d2@rb0rus3r132
     ports:
         - "5250:8080"
     networks:
