@@ -46,7 +46,7 @@ public class Employee : Person
         DeletedOn = null;
     }
 
-    public void Update(string name, string email, string telephone, string fax, Guid portalId, Guid companyId, Guid roleId, Status status)
+    public void Update(string name, string email, string telephone, string fax, Guid portalId, Guid companyId, Guid roleId, Guid userId, Status status)
     {
         Name = name;
         Email = email;
@@ -58,5 +58,6 @@ public class Employee : Person
         PortalId = portalId;
         CompanyId = companyId;
         RoleId = roleId;
+        UserId = userId;
     }
 }

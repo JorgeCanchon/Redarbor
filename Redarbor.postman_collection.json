@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"jorge test\",\r\n  \"email\": \"jorgecanchongmail.com\",\r\n  \"telephone\": \"13246579\",\r\n  \"fax\": \"pbx12346\",\r\n  \"portalId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"companyId\": \"a2220b31-1402-485c-bcef-904b6dec977e\",\r\n  \"roleId\": \"b0c4a2e9-61d0-459d-a35b-82d0e4a7f85e\",\r\n  \"userId\": \"f0e69bec-6b0d-426e-8ebf-439f31e314ce\"\r\n}",
+					"raw": "{\r\n  \"name\": \"jorge test\",\r\n  \"email\": \"jorgecanchongmail.com\",\r\n  \"telephone\": \"13246579\",\r\n  \"fax\": \"pbx12346\",\r\n  \"portalId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"companyId\": \"a2220b31-1402-485c-bcef-904b6dec977e\",\r\n  \"roleId\": \"b0c4a2e9-61d0-459d-a35b-82d0e4a7f85e\",\r\n  \"username\": \"jorge test\",\r\n  \"password\": \"12346\",\r\n  \"status\": 1\r\n}   ",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -28,6 +28,123 @@
 					"path": [
 						"redarbor",
 						"Employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateEmployeeCommand",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"95ae00bb-828a-4335-8388-3a967a975884\",\r\n    \"name\": \"jorge test\",\r\n    \"email\": \"jorgecanchongmail.com\",\r\n    \"telephone\": \"13246579\",\r\n    \"fax\": \"pbx12346\",\r\n    \"portalId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n    \"companyId\": \"a2220b31-1402-485c-bcef-904b6dec977e\",\r\n    \"roleId\": \"b0c4a2e9-61d0-459d-a35b-82d0e4a7f85e\",\r\n    \"userId\": \"e47ce41b-2110-422c-bde0-fc3ba0829d4c\",\r\n    \"status\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}api/redarbor/Employee/95ae00bb-828a-4335-8388-3a967a975884",
+					"host": [
+						"{{localhost}}api"
+					],
+					"path": [
+						"redarbor",
+						"Employee",
+						"95ae00bb-828a-4335-8388-3a967a975884"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteEmployeeCommand",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}api/redarbor/Employee/95ae00bb-828a-4335-8388-3a967a975884",
+					"host": [
+						"{{localhost}}api"
+					],
+					"path": [
+						"redarbor",
+						"Employee",
+						"95ae00bb-828a-4335-8388-3a967a975884"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllEmployeeQuery",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}api/redarbor/Employee",
+					"host": [
+						"{{localhost}}api"
+					],
+					"path": [
+						"redarbor",
+						"Employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetEmployeeByIdQuery",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}api/redarbor/Employee/95ae00bb-828a-4335-8388-3a967a975884",
+					"host": [
+						"{{localhost}}api"
+					],
+					"path": [
+						"redarbor",
+						"Employee",
+						"95ae00bb-828a-4335-8388-3a967a975884"
 					]
 				}
 			},
