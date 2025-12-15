@@ -6,6 +6,7 @@ En la raiz del proyecto ejecutar el siguiente comando para correr la infraestruc
 ```shell
 docker network create redarbor-network
 docker compose up -d 
+docker compose up --build -d # Reconstruye
 ```
 
 
