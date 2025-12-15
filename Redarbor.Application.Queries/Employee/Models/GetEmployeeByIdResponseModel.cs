@@ -4,5 +4,5 @@ namespace Redarbor.Application.Queries.Employee.Models;
 
 public class GetEmployeeByIdResponseModel
 {
-    public EmployeeEntity Employee { get; set; } = null!;
+    public EmployeeEntity? Employee { get; set; } = null!;
 }

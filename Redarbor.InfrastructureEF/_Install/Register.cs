@@ -2,9 +2,11 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Redarbor.Domain.Services;
 using Redarbor.Domain.Services.Persistence;
 using Redarbor.InfrastructureEF.Persistence;
 using Redarbor.InfrastructureEF.Persistence.Repository;
+using Redarbor.InfrastructureEF.Services;
 using static Redarbor.InfrastructureEF.Constants.Constants;
 
 namespace Redarbor.InfrastructureEF._Install;
@@ -34,5 +36,6 @@ public static class Register
            );
 
         services.AddTransient(typeof(IRepositoryAsync<>), typeof(RepositoryAsync<>));
+        services.AddTransient<IGetEmployeeService, GetEmployeeService>();
     }
 }

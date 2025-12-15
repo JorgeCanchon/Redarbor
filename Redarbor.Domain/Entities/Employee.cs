@@ -33,4 +33,30 @@ public class Employee : Person
     {
         User = User.Create(name, password);
     }
+
+    public void LogicalDelete()
+    {
+        Status = Status.Inactive;
+        DeletedOn = DateTime.UtcNow;
+    }
+
+    public void Reactivate()
+    {
+        Status = Status.Active;
+        DeletedOn = null;
+    }
+
+    public void Update(string name, string email, string telephone, string fax, Guid portalId, Guid companyId, Guid roleId, Status status)
+    {
+        Name = name;
+        Email = email;
+        Telephone = telephone;
+        Fax = fax;
+        RoleId = roleId;
+        Status = status;
+        UpdatedOn = DateTime.UtcNow;
+        PortalId = portalId;
+        CompanyId = companyId;
+        RoleId = roleId;
+    }
 }
