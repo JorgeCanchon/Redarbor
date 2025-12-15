@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\Validations\" />
     <Folder Include="Common\Mappings\" />
     <Folder Include="Queries\Handlers\Employee\" />
     <Folder Include="Queries\Validations\" />

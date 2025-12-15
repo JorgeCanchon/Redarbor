@@ -11,22 +11,26 @@ public class Employee : Person
     public Status Status { get; set; }
     public Guid RoleId { get; set; }
     public virtual Role Role { get; set; } = null!;
-    public Guid UserId { get; set; }
+    public Guid? UserId { get; set; }
     public virtual User User { get; set; } = null!;
 
-    public static Employee Create(string name, string email, string telephone, string fax, Guid portalId, Guid companyId, Guid roleId, Guid userId)
+    public static Employee Create(string name, string email, string telephone, string fax, Guid portalId, Guid companyId, Guid roleId, Status status)
     => new()
     {
         Name = name,
         Email = email,
-        Status = Status.Active,
+        Status = status,
         CreatedOn = DateTime.UtcNow,
         Id = Guid.NewGuid(),
         PortalId = portalId,
         CompanyId = companyId,
         RoleId = roleId,
         Fax = fax,
-        Telephone = telephone,
-        UserId = userId
+        Telephone = telephone
     };
+
+    public void AddUser(string name, string password)
+    {
+        User = User.Create(name, password);
+    }
 }

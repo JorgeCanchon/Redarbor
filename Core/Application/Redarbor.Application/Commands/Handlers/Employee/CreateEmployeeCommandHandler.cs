@@ -18,8 +18,11 @@ public class CreateEmployeeCommandHandler(IRepositoryAsync<EmployeeEntity> repos
             request.PortalId,
             request.CompanyId,
             request.RoleId,
-            request.UserId
+            request.Status
         );
+
+        employee.AddUser(request.Username, request.Password);
+
         var data = await repositoryAsync.AddAsync(employee, cancellationToken);
         return new Response<Guid>(data.Id);
     }
