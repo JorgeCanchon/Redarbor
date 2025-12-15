@@ -26,6 +26,32 @@ public class Context : DbContext
             Npgsql.EntityFrameworkCore.PostgreSQL.Metadata.NpgsqlValueGenerationStrategy.IdentityAlwaysColumn);
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         base.OnModelCreating(modelBuilder);
+
+        /*Role role = Role.Create("Administrador");
+        modelBuilder.Entity<Role>().HasData(
+            role,
+            Role.Create("Coordinador")
+        );
+
+        Portal portal = Portal.Create("Redarbor");
+        modelBuilder.Entity<Portal>().HasData(
+            portal,
+            Portal.Create("Redarbor Empleador")
+        );
+
+        Company company = Company.Create("Redarbor S.A.S");
+        modelBuilder.Entity<Company>().HasData(
+            company
+        );
+
+        User user = User.Create("JorgeTest", "jorgetest123*_|");
+        modelBuilder.Entity<User>().HasData(
+            user
+        );
+
+        modelBuilder.Entity<Employee>().HasData(
+            Employee.Create("Jorge Canchon", "jorgecanchon@gmail.com", "123456", "pbx456798", portal.Id, company.Id, role.Id, user.Id)
+        );*/
     }
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())

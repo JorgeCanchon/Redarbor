@@ -6,10 +6,9 @@ namespace Redarbor.API.Controllers;
 
 public class EmployeeController : BaseApiController
 {
-    [HttpPost]
+    [HttpPost()]
     public async Task<IActionResult> Post(CreateEmployeeCommand command)
     => Ok(await Mediator.Send(command));
-
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(Guid id) =>

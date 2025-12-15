@@ -5,11 +5,15 @@ public class User : AuditableBaseEntity
     public string Username { get; set; } = null!;
     public string Password { get; set; } = null!;
     public DateTime? LastLogin { get; set; }
-    public Guid EmployeeId { get; set; }
     public virtual Employee Employee { get; set; } = null!;
 
-    public static new User Create()
+    public static User Create(string username, string password)
+    => new()
     {
-        return new User();
-    }
+        Id = Guid.NewGuid(),
+        CreatedOn = DateTime.UtcNow,
+        LastLogin = DateTime.UtcNow,
+        Password = password,
+        Username = username,
+    };
 }

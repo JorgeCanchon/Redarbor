@@ -12,10 +12,11 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
         builder.HasKey(e => e.Id);
 
         builder.Property(e => e.Status)
-               .HasConversion<string>()
-               .HasDefaultValue(Status.Active);
+               .HasConversion<string>();
 
         builder.Property(e => e.Telephone);
+
+        builder.Property(e => e.Fax);
 
         builder.Property(e => e.Name)
             .IsRequired();
@@ -41,7 +42,6 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
 
         builder.HasOne(u => u.User)
             .WithOne(e => e.Employee)
-            .HasForeignKey<Employee>(u => u.UserId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 }

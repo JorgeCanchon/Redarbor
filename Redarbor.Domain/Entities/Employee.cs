@@ -14,8 +14,19 @@ public class Employee : Person
     public Guid UserId { get; set; }
     public virtual User User { get; set; } = null!;
 
-    public static Employee Create()
+    public static Employee Create(string name, string email, string telephone, string fax, Guid portalId, Guid companyId, Guid roleId, Guid userId)
+    => new()
     {
-        return new Employee();
-    }
+        Name = name,
+        Email = email,
+        Status = Status.Active,
+        CreatedOn = DateTime.UtcNow,
+        Id = Guid.NewGuid(),
+        PortalId = portalId,
+        CompanyId = companyId,
+        RoleId = roleId,
+        Fax = fax,
+        Telephone = telephone,
+        UserId = userId
+    };
 }

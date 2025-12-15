@@ -19,7 +19,6 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 
         builder.HasOne(u => u.Employee)
             .WithOne(e => e.User)
-            .HasForeignKey<User>(u => u.EmployeeId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 }
