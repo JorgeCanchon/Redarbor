@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="14.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Redarbor.Application.Shared\Redarbor.Application.Shared.csproj" />
+    <ProjectReference Include="..\Redarbor.Domain\Redarbor.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

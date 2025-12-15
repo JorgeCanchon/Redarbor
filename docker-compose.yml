@@ -4,3 +4,38 @@ services:
     build:
       context: .
       dockerfile: Redarbor.API/Dockerfile
+    depends_on:
+      dbpostgresqlserver:
+        condition: service_healthy
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__PostgreConnection=Server=dbpostgresqlserver;Database=RedarborDb;Port=5433;User Id=redarboruser;Password=R3d2@rb0rus3r132
+    networks:
+      - redarbor-network
+  dbpostgresqlserver:
+    container_name: dbpostgresqlserver
+    image: postgres:14-alpine
+    ports:
+        - "5433:5432"
+    environment:
+      - POSTGRES_PASSWORD=R3d2@rb0rus3r132
+      - POSTGRES_USER=redarboruser
+      - POSTGRES_DB=RedarborDb
+    volumes:
+      - dbpostgresqlserver_data:/var/lib/postgresql/data
+    networks:
+      - redarbor-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U redarboruser -d RedarborDb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+networks:
+  redarbor-network:
+    driver: bridge
+  default:
+    external: true  
+    name: redarbor-network
+volumes:
+  dbpostgresqlserver_data:
+    driver: local  

@@ -1,25 +1,28 @@
 <Solution>
-  <Folder Name="/Api/">
-    <Project Path="Redarbor.API/Redarbor.API.csproj" DisplayName="Redarbor.Api" />
+  <Folder Name="/Redarbor-API/" />
+  <Folder Name="/Redarbor-API/Api/">
+    <Project Path="Redarbor.API/Redarbor.API.csproj" />
   </Folder>
-  <Folder Name="/Core/" />
-  <Folder Name="/Core/Application/">
+  <Folder Name="/Redarbor-API/Core/" />
+  <Folder Name="/Redarbor-API/Core/Application/">
     <Project Path="Core/Application/Redarbor.Application/Redarbor.Application.csproj" Id="e508c180-a6d8-4111-a94a-ec7c77fd01e8" />
     <Project Path="Redarbor.Application.Commands/Redarbor.Application.Commands.csproj" Id="14ab68a7-0e7f-4acf-b7c1-c2603de536b5" />
     <Project Path="Redarbor.Application.Queries/Redarbor.Application.Queries.csproj" Id="11695eb5-8cda-4f12-a0c6-9038c0f76d8b" />
     <Project Path="Redarbor.Application.Shared/Redarbor.Application.Shared.csproj" Id="8c54c25e-c2e0-4da5-bab0-ff82cf76a223" />
   </Folder>
-  <Folder Name="/Core/Domain/">
+  <Folder Name="/Redarbor-API/Core/Domain/">
     <Project Path="Redarbor.Domain.Shared/Redarbor.Domain.Shared.csproj" Id="48f8a764-feaa-44c8-8f0b-81656634c113" />
     <Project Path="Redarbor.Domain/Redarbor.Domain.csproj" Id="afab5387-1376-43af-8dd9-c8fb2c7e937e" />
   </Folder>
-  <Folder Name="/Infrastructure/">
+  <Folder Name="/Redarbor-API/Infrastructure/">
     <Project Path="Redarbor.InfrastructureEF/Redarbor.InfrastructureEF.csproj" Id="d650b5ec-0798-4a2c-9c40-473406ad53d0" />
   </Folder>
-  <Folder Name="/Test/">
+  <Folder Name="/Redarbor-API/Test/">
     <Project Path="Redarbor.Test.IntegrationTest/Redarbor.Test.IntegrationTest.csproj" Id="e80afeb7-b8d3-4450-8e47-54e254a72581" />
     <Project Path="Redarbor.Test.UnitTest/Redarbor.Test.UnitTest.csproj" Id="173f9253-7194-47e0-87e2-7dcb982826d5" />
   </Folder>
+  <Folder Name="/Redarbor-Core/" />
+  <Folder Name="/Redarbor-Users/" />
   <Project Path="docker-compose.dcproj">
     <Build />
   </Project>

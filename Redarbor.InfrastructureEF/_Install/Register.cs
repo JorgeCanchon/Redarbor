@@ -1,10 +1,11 @@
-﻿using static Redarbor.InfrastructureEF.Constants.Constants;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Redarbor.InfrastructureEF.Persistence;
+using Microsoft.Extensions.Logging;
 using Redarbor.Domain.Services.Persistence;
+using Redarbor.InfrastructureEF.Persistence;
 using Redarbor.InfrastructureEF.Persistence.Repository;
+using static Redarbor.InfrastructureEF.Constants.Constants;
 
 namespace Redarbor.InfrastructureEF._Install;
 
@@ -14,10 +15,23 @@ public static class Register
     {
         string connectionString = configuration.GetConnectionString(ConnectionStringName)!;
 
-        services.AddDbContext<Context>(options => options.UseMySql(
-            connectionString, 
-            ServerVersion.AutoDetect(connectionString)
-        ), ServiceLifetime.Transient);
+        services.AddLogging();
+        services.AddDbContext<Context>((provider, options) =>
+        {
+            var loggerFactory = provider.GetRequiredService<ILoggerFactory>();
+            options.UseLoggerFactory(loggerFactory);
+            options.UseNpgsql(connectionString, npgsqlOptions =>
+            {
+                npgsqlOptions.EnableRetryOnFailure();
+                npgsqlOptions.CommandTimeout(60);
+            })
+            .LogTo(Console.WriteLine)
+            .EnableDetailedErrors();
+
+            options.EnableSensitiveDataLogging();
+            options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+        }
+           );
 
         services.AddTransient(typeof(IRepositoryAsync<>), typeof(RepositoryAsync<>));
     }

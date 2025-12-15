@@ -10,4 +10,8 @@
     <Folder Include="ValueObjects\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Redarbor.Domain.Shared\Redarbor.Domain.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

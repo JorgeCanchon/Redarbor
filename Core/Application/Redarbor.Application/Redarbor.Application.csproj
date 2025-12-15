@@ -7,10 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\Handlers\" />
+    <Folder Include="Commands\Handlers\Employee\" />
     <Folder Include="Commands\Validations\" />
     <Folder Include="Common\Mappings\" />
-    <Folder Include="Queries\Handlers\" />
+    <Folder Include="Queries\Handlers\Employee\" />
     <Folder Include="Queries\Validations\" />
   </ItemGroup>
 

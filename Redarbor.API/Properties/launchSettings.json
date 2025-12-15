@@ -6,7 +6,7 @@
       "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "Redarbor.ConnectionString": "Server=localhost;Database=RedarborDb;User Id=sa;Password=redarbor!123*;TrustServerCertificate=True;MultipleActiveResultSets=True;"
+        "Redarbor.ConnectionString": "Server=localhost;Database=RedarborDb;Port=5433;User Id=redarboruser;Password=R3d2@rb0rus3r132"
       },
       "dotnetRunMessages": true,
       "applicationUrl": "http://localhost:5110"
