@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "0749f588-bd61-4348-9c61-0da64faf91df",
+		"name": "Redarbor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8889993"
+	},
+	"item": [
+		{
+			"name": "CreateEmployeeCommand",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"jorge test\",\r\n  \"email\": \"jorgecanchongmail.com\",\r\n  \"telephone\": \"13246579\",\r\n  \"fax\": \"pbx12346\",\r\n  \"portalId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"companyId\": \"a2220b31-1402-485c-bcef-904b6dec977e\",\r\n  \"roleId\": \"b0c4a2e9-61d0-459d-a35b-82d0e4a7f85e\",\r\n  \"userId\": \"f0e69bec-6b0d-426e-8ebf-439f31e314ce\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}api/redarbor/Employee",
+					"host": [
+						"{{localhost}}api"
+					],
+					"path": [
+						"redarbor",
+						"Employee"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "localhost:5110/",
+			"type": "string"
+		}
+	]
+}

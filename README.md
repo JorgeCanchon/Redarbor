@@ -45,3 +45,8 @@ Database=RedarborDb
 Port=5433
 User Id=redarboruser
 Password=R3d2@rb0rus3r132
+
+#Ejecutar solución
+Abra la solución con visual studio y ejecute el proyecto con Redarbor.Api
+
+Importe la collection Redarbor.postman_collection.json de postman que esta en la raiz del proyecto y ejecute los requests
