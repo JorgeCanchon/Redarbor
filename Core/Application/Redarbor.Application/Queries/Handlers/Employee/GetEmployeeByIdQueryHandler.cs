@@ -7,7 +7,7 @@ using EmployeeEntity = Redarbor.Domain.Entities.Employee;
 
 namespace Redarbor.Application.Queries.Handlers.Employee;
 
-public class GetEmployeeByIdQueryHandler(IGetEmployeeService getEmployeeService ): IRequestHandler<GetEmployeeByIdQuery, Response<GetEmployeeByIdResponseModel>>
+public class GetEmployeeByIdQueryHandler(IGetEmployeeService getEmployeeService): IRequestHandler<GetEmployeeByIdQuery, Response<GetEmployeeByIdResponseModel>>
 {
     public async Task<Response<GetEmployeeByIdResponseModel>> Handle(GetEmployeeByIdQuery request, CancellationToken cancellationToken)
     {
