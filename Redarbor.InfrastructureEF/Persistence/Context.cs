@@ -26,32 +26,44 @@ public class Context : DbContext
             Npgsql.EntityFrameworkCore.PostgreSQL.Metadata.NpgsqlValueGenerationStrategy.IdentityAlwaysColumn);
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         base.OnModelCreating(modelBuilder);
+        AddSeedData(modelBuilder);
+    }
 
-        /*Role role = Role.Create("Administrador");
+    private static void AddSeedData(ModelBuilder modelBuilder)
+    {
+        DateTime createdOn = new DateTime(2025, 12, 15, 0, 0, 0, DateTimeKind.Utc);
+        Role role = new()
+        {
+            CreatedOn = createdOn,
+            Name = "Administrador",
+            Id = Guid.Parse("b0c4a2e9-61d0-459d-a35b-82d0e4a7f85e")
+        };
+
         modelBuilder.Entity<Role>().HasData(
-            role,
-            Role.Create("Coordinador")
+            role
         );
 
-        Portal portal = Portal.Create("Redarbor");
+        Portal portal = new()
+        {
+            CreatedOn = createdOn,
+            Name = "Portal test",
+            Id = Guid.Parse("3fa85f64-5717-4562-b3fc-2c963f66afa6")
+        };
+
         modelBuilder.Entity<Portal>().HasData(
-            portal,
-            Portal.Create("Redarbor Empleador")
+            portal
         );
 
-        Company company = Company.Create("Redarbor S.A.S");
+        Company company = new()
+        {
+            CreatedOn = createdOn,
+            Name = "Company test",
+            Id = Guid.Parse("a2220b31-1402-485c-bcef-904b6dec977e")
+        };
+
         modelBuilder.Entity<Company>().HasData(
             company
         );
-
-        User user = User.Create("JorgeTest", "jorgetest123*_|");
-        modelBuilder.Entity<User>().HasData(
-            user
-        );
-
-        modelBuilder.Entity<Employee>().HasData(
-            Employee.Create("Jorge Canchon", "jorgecanchon@gmail.com", "123456", "pbx456798", portal.Id, company.Id, role.Id, user.Id)
-        );*/
     }
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
