@@ -21,9 +21,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{localhost}}api/redarbor/Employee",
+					"raw": "{{docker}}api/redarbor/Employee",
 					"host": [
-						"{{localhost}}api"
+						"{{docker}}api"
 					],
 					"path": [
 						"redarbor",
@@ -137,9 +137,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{localhost}}api/redarbor/Employee/95ae00bb-828a-4335-8388-3a967a975884",
+					"raw": "{{docker}}api/redarbor/Employee/95ae00bb-828a-4335-8388-3a967a975884",
 					"host": [
-						"{{localhost}}api"
+						"{{docker}}api"
 					],
 					"path": [
 						"redarbor",
@@ -177,6 +177,11 @@
 		{
 			"key": "localhost",
 			"value": "localhost:5110/",
+			"type": "string"
+		},
+		{
+			"key": "docker",
+			"value": "localhost:5250/",
 			"type": "string"
 		}
 	]

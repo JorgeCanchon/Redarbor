@@ -1,18 +1,15 @@
 # Redarbor
 WebApi employees Redarbor
 
-En la raiz del proyecto ejecutar el siguiente comando para correr la infraestructura 
+1. Luego de clonar el proyecto, abrimos un CLI con la ruta raiz del proyecto y ejecutamos el siguiente comando para correr la infraestructura:
 
 ```shell
-docker network create redarbor-network
 docker compose up -d 
-docker compose up --build -d # Reconstruye
 ```
 
 
-Ingresar a la ruta Redarbor\Redarbor.InfrastructureEF 
-
-Ejecutar el siguiente comando para correr la migración
+2.  Luego ejecutamos la migracion para crear nuestra DB, vamos a la ruta **Redarbor\Redarbor.InfrastructureEF**, y,
+ejecutamos el siguiente comando para correr la migración:
 
 ```shell
 dotnet ef database update --startup-project ..\Redarbor.API\Redarbor.Api.csproj
@@ -20,34 +17,29 @@ dotnet ef database update --startup-project ..\Redarbor.API\Redarbor.Api.csproj
 
 # Conectarse a la instancia de docker 
 
+En la misma consola o CLI ejecutamos este comando para conectarnos a la instancia de postgresql
+
 ```shell
 docker exec -it dbpostgresqlserver psql -U redarboruser -d RedarborDb
 ```
-## Ejecutar estos INSERT
+Una vez conectados verificamos que se hayan creado las tablas 
 
 ```shell
-INSERT INTO public."Portals"("Id", "Name", "CreatedOn")
-VALUES ('3fa85f64-5717-4562-b3fc-2c963f66afa6', 'Portal test', now());
-
-INSERT INTO public."Companies"("Id", "Name", "CreatedOn")
-VALUES ('a2220b31-1402-485c-bcef-904b6dec977e', 'Company test', now());
-
-INSERT INTO public."Roles"("Id", "Name", "CreatedOn")
-VALUES ('b0c4a2e9-61d0-459d-a35b-82d0e4a7f85e', 'Administrador', now());
-
-INSERT INTO public."Users"("Id", "Username", "Password", "LastLogin", "CreatedOn")
-VALUES ('f0e69bec-6b0d-426e-8ebf-439f31e314ce', 'redarborJorge', '123465798', now(), now());
+\dt
 ```
 
-# Credenciales postgresql
+Validamos que las tablas tengas los datos iniciales
 
-Server=localhost
-Database=RedarborDb
-Port=5433
-User Id=redarboruser
-Password=R3d2@rb0rus3r132
+```shell
+SELECT * FROM "Roles";
+```
 
-#Ejecutar solución
-Abra la solución con visual studio y ejecute el proyecto con Redarbor.Api
+# Validar API
 
-Importe la collection Redarbor.postman_collection.json de postman que esta en la raiz del proyecto y ejecute los requests
+Para validar que nuestro API esta corriendo vamos a esta [URL](http://localhost:5250/swagger/index.html)
+
+# Pruebas en Postman
+En la raiz del proyecto se encuentra una coleccion de postman llamada **Redarbor.postman_collection.json** la cual importaremos y ejecutaremos.
+
+# Test de integracion
+
