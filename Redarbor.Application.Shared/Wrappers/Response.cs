@@ -1,4 +1,6 @@
-﻿namespace Redarbor.Application.Shared.Wrappers;
+﻿using System.Text.Json.Serialization;
+
+namespace Redarbor.Application.Shared.Wrappers;
 
 public class Response<T>
 {
@@ -7,6 +9,14 @@ public class Response<T>
     public string? Code { get; set; }
     public T? Result { get; set; }
     public List<string>? Errors { get; set; }
+
+    [JsonConstructor]
+    public Response(T result, bool isSucess, string message)
+    {
+        Result = result;
+        IsSucess = isSucess;
+        Message = message;
+    }
 
     public Response(T result, string? message = null)
     {
